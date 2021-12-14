@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,8 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/upload', [UploadController::class, 'upload']);
+Route::post('/upload/proses', [UploadController::class, 'proses_upload']);
+
+Route::get('/upload/hapus/{id}', [UploadController::class, 'hapus']);
