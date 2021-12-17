@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Gambar extends Model
+class Product extends Model
 {
-    protected $table = "gambar";
+    use HasFactory;
 
-    protected $fillable = ['file', 'nama', 'keterangan', 'harga'];
+    protected $fillable = [
+        'name', 'detail', 'image', 'price'
+    ];
 }
