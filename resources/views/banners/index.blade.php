@@ -14,7 +14,7 @@
 </br>
 
 <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('products.create')}}"> Create New Product</a>
+            <a class="btn btn-success" href="{{ route('banners.create')}}"> Create New Banner</a>
 </div>
 
 </br>
@@ -29,22 +29,16 @@
         <tr>
             <th>No</th>
             <th>Image</th>
-            <th>Name</th>
-            <th>Details</th>
-            <th>Price</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($products as $product)
+        @foreach ($banner as $banners)
         <tr>
             <td>{{ ++$i }}</td>
-            <td><img src="/image/product{{ $product->image }}" width="100px"></td>
-            <td>{{ $product->name }}</td>
-            <td>{{ $product->detail }}</td>
-            <td>{{ $product->price }}</td>
+            <td><img src="/image/banner{{ $banners->image }}" width="100px"></td>
             <td>
-                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
+                <form action="{{ route('banners.destroy',$banners->id) }}" method="POST">
 
-                    <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('products.edit',$banners->id) }}">Edit</a>
      
                     @csrf
                     @method('DELETE')
@@ -56,6 +50,6 @@
         @endforeach
     </table>
     
-    {!! $products->links() !!}
+    {!! $banner->links() !!}
         
 @endsection 
