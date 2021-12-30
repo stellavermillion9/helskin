@@ -37,7 +37,7 @@
         @foreach ($products as $product)
         <tr>
             <td>{{ ++$i }}</td>
-            <td><img src="/image/product{{ $product->image }}" width="100px"></td>
+            <td><img src="{{asset ('image/product/'.$product->image) }}" width="100px"></td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->detail }}</td>
             <td>{{ $product->price }}</td>
@@ -56,6 +56,5 @@
         @endforeach
     </table>
     
-    {!! $products->links() !!}
         
 @endsection 

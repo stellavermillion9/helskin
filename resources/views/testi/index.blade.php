@@ -14,8 +14,7 @@
 </br>
 
 <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('banners.create')}}"> Create New Banner</a>
-            <h2>Upload 2 gambar saja, bila lebih hapus yang tidak terpakai</h2>
+            <a class="btn btn-success" href="{{ route('testi.create')}}"> Create New Testimoni</a>
 </div>
 
 </br>
@@ -29,17 +28,21 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
+            <th>Name</th>
+            <th>Description</th>
             <th>Image</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($banner as $banners)
+        @foreach ($testi as $t)
         <tr>
             <td>{{ ++$i }}</td>
-            <td><img src="{{asset ('image/banner/'.$banners->image )}}" width="100px"></td>
+            <td>{{ $t->name }}</td>
+            <td>{{ $t->description }}</td>
+            <td><img src="{{asset ('image/testi/'.$t->image )}}" width="100px"></td>
             <td>
-                <form action="{{ route('banners.destroy',$banners->id) }}" method="POST">
+                <form action="{{ route('testi.destroy',$t->id) }}" method="POST">
 
-                    <a class="btn btn-primary" href="{{ route('products.edit',$banners->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('testi.edit',$t->id) }}">Edit</a>
      
                     @csrf
                     @method('DELETE')
@@ -51,5 +54,6 @@
         @endforeach
     </table>
     
+    {!! $testi->links() !!}
         
 @endsection 

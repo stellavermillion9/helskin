@@ -8,7 +8,7 @@
                 <h2>Edit banner</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('banner.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('iklan.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
         </div>
     @endif
     
-    <form action="{{ route('banner.update',$banner->id) }}" method="POST" enctype="multipart/form-data"> 
+    <form action="{{ route('iklan.update',$iklan->id) }}" method="POST" enctype="multipart/form-data"> 
         @csrf
         @method('PUT')
      
@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <strong>Image:</strong>
                     <input type="file" name="image" class="form-control" placeholder="image">
-                    <img src="{{asset('/image/banner/'.$banner->image) }}" width="300px">
+                    <img src="{{asset('/image/banner1/'.$iklan->image) }}" width="300px">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

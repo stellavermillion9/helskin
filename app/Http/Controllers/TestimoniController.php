@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Testimoni;
 use Illuminate\Http\Request;
-use App\Models\Banner;
-use App\Models\BannerHalf;
 
-class BannersController extends Controller
+class TestimoniController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,10 @@ class BannersController extends Controller
      */
     public function index()
     {
-        $banner = Banner::latest()->paginate(10);
+        $testi = Testimoni::latest()->paginate(5);
 
-        return view('banners.index', compact('banner'))
-            ->with('i', (request('page', 1) - 1) * 5);
+        return view('testi.index', compact('testi'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -28,7 +27,7 @@ class BannersController extends Controller
      */
     public function create()
     {
-        return view('banners.create');
+        return view('testi.create');
     }
 
     /**
@@ -40,85 +39,91 @@ class BannersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000'
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
 
         $input = $request->all();
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'image/banner';
+            $destinationPath = 'image/testi';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
         }
 
-        Banner::create($input);
+        Testimoni::create($input);
 
-        return redirect()->route('banners.index')
-            ->with('success', 'banner created successfully.');
+        return redirect()->route('testi.index')
+            ->with('success', 'Testimoni created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Testi  $testi
      * @return \Illuminate\Http\Response
      */
-    public function show(Banner $banner)
+    public function show(Testimoni $testi)
     {
-        return view('index', compact('banner'));
+        return view('index', compact('testi'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Banner $banner)
+    public function edit(Testimoni $testi)
     {
-        return view('banners.edit', compact('banner'));
+        return view('testi.edit', compact('testi'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Testimoni  $testi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BannerHalf $bannerhalf)
+    public function update(Request $request, Testimoni $testi)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000'
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'required'
         ]);
 
         $input = $request->all();
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'image/banner1';
+            $destinationPath = 'image/testi';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
+        } else {
+            unset($input['image']);
         }
 
-        $bannerhalf->update($input);
+        $testi->update($input);
 
-        return redirect()->route('banners.index')
-            ->with('success', 'banner created successfully.');
+        return redirect()->route('testi.index')
+            ->with('success', 'Testimoni updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Testimoni  $testi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BannerHalf $bannerhalf)
+    public function destroy(Testimoni $testi)
     {
-        $bannerhalf->delete();
+        $testi->delete();
 
-        return redirect()->route('bannershalf.index')
-            ->with('success', 'Product deleted successfully');
+        return redirect()->route('testi.index')
+            ->with('success', 'testi deleted successfully');
     }
 }

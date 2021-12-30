@@ -19,6 +19,18 @@
             <a class="btn btn-success" href="{{ route('banners.index')}}"> Banner</a>
           </div>
         </li>
+      </br>
+        <li class="nav-item">
+          <div class="pull-right">
+            <a class="btn btn-success" href="{{ route('testi.index')}}"> Testimoni</a>
+          </div>
+        </li>
+      </br>
+      <li class="nav-item">
+        <div class="pull-right">
+          <a class="btn btn-success" href="{{ route('iklan.index')}}">Banner Tengah</a>
+        </div>
+      </li>
       </ul>
     </div>
   </nav>

@@ -14,7 +14,7 @@
 </br>
 
 <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('banners.create')}}"> Create New Banner</a>
+            <a class="btn btn-success" href="{{ route('iklan.create')}}"> Create New Banner</a>
             <h2>Upload 2 gambar saja, bila lebih hapus yang tidak terpakai</h2>
 </div>
 
@@ -32,14 +32,14 @@
             <th>Image</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($banner as $banners)
+        @foreach ($iklan as $iklans)
         <tr>
             <td>{{ ++$i }}</td>
-            <td><img src="{{asset ('image/banner/'.$banners->image )}}" width="100px"></td>
+            <td><img src="{{asset ('image/iklan/'.$iklans->image )}}" width="100px"></td>
             <td>
-                <form action="{{ route('banners.destroy',$banners->id) }}" method="POST">
+                <form action="{{ route('iklan.destroy',$iklans->id) }}" method="POST">
 
-                    <a class="btn btn-primary" href="{{ route('products.edit',$banners->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('iklan.edit',$iklans->id) }}">Edit</a>
      
                     @csrf
                     @method('DELETE')

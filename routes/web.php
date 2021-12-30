@@ -2,11 +2,10 @@
 
 use App\Http\Controllers\BannersController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IklanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Models\Banner;
-use App\Models\Product;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\TestimoniController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +18,12 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('index', HomeController::class, 'show_data');
+Route::get('/', [HomeController::class, 'index']);
+
+// Route::get('index', function () {
+//     return view('index');
+// });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -32,3 +32,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::resource('products', ProductController::class);
 
 Route::resource('banners', BannersController::class);
+
+Route::resource('testi', TestimoniController::class);
+
+Route::resource('iklan', IklanController::class);

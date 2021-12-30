@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
+    <title>Helskin Dashboard</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
@@ -47,7 +47,6 @@
       @yield('container')
       </div>
 
-      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
       
     </main>
   </div>

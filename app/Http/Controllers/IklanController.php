@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Iklan;
 use Illuminate\Http\Request;
-use App\Models\Banner;
-use App\Models\BannerHalf;
 
-class BannersController extends Controller
+class IklanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,9 @@ class BannersController extends Controller
      */
     public function index()
     {
-        $banner = Banner::latest()->paginate(10);
+        $iklan = Iklan::latest()->paginate(10);
 
-        return view('banners.index', compact('banner'))
+        return view('iklan.index', compact('iklan'))
             ->with('i', (request('page', 1) - 1) * 5);
     }
 
@@ -28,7 +27,7 @@ class BannersController extends Controller
      */
     public function create()
     {
-        return view('banners.create');
+        return view('iklan.create');
     }
 
     /**
@@ -46,15 +45,15 @@ class BannersController extends Controller
         $input = $request->all();
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'image/banner';
+            $destinationPath = 'image/iklan';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
         }
 
-        Banner::create($input);
+        Iklan::create($input);
 
-        return redirect()->route('banners.index')
+        return redirect()->route('iklan.index')
             ->with('success', 'banner created successfully.');
     }
 
@@ -64,9 +63,9 @@ class BannersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Banner $banner)
+    public function show(Iklan $iklan)
     {
-        return view('index', compact('banner'));
+        return view('index', compact('iklan'));
     }
 
     /**
@@ -75,9 +74,9 @@ class BannersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Banner $banner)
+    public function edit(Iklan $iklan)
     {
-        return view('banners.edit', compact('banner'));
+        return view('iklan.edit', compact('iklan'));
     }
 
     /**
@@ -87,7 +86,7 @@ class BannersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BannerHalf $bannerhalf)
+    public function update(Request $request, Iklan $iklan)
     {
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000'
@@ -96,15 +95,15 @@ class BannersController extends Controller
         $input = $request->all();
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'image/banner1';
+            $destinationPath = 'image/iklan';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
         }
 
-        $bannerhalf->update($input);
+        $iklan->update($input);
 
-        return redirect()->route('banners.index')
+        return redirect()->route('iklan.index')
             ->with('success', 'banner created successfully.');
     }
 
@@ -114,11 +113,11 @@ class BannersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BannerHalf $bannerhalf)
+    public function destroy(Iklan $iklan)
     {
-        $bannerhalf->delete();
+        $iklan->delete();
 
-        return redirect()->route('bannershalf.index')
+        return redirect()->route('iklan.index')
             ->with('success', 'Product deleted successfully');
     }
 }
