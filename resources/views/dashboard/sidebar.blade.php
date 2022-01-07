@@ -28,7 +28,7 @@
       </br>
       <li class="nav-item">
         <div class="pull-right">
-          <a class="btn btn-success" href="{{ route('iklan.index')}}">Banner Tengah</a>
+          <a class="btn btn-success" href="{{ route('iklan.index')}}">Logo Tengah</a>
         </div>
       </li>
       </ul>

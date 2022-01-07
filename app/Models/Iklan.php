@@ -10,6 +10,6 @@ class Iklan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'image'
+        'image', 'description'
     ];
 }

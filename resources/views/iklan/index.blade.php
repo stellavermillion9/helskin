@@ -14,8 +14,7 @@
 </br>
 
 <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('iklan.create')}}"> Create New Banner</a>
-            <h2>Upload 2 gambar saja, bila lebih hapus yang tidak terpakai</h2>
+            <a class="btn btn-success" href="{{ route('iklan.create')}}"> Create New Logo</a>
 </div>
 
 </br>
@@ -30,12 +29,14 @@
         <tr>
             <th>No</th>
             <th>Image</th>
+            <th>Description</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($iklan as $iklans)
         <tr>
             <td>{{ ++$i }}</td>
             <td><img src="{{asset ('image/iklan/'.$iklans->image )}}" width="100px"></td>
+            <td><p>{{ $iklans->description }}</p></td>
             <td>
                 <form action="{{ route('iklan.destroy',$iklans->id) }}" method="POST">
 
@@ -51,5 +52,4 @@
         @endforeach
     </table>
     
-        
 @endsection 

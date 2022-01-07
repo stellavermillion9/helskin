@@ -9,6 +9,15 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#whatsapp{
+  position: fixed;
+  top: 85%;
+  right: 0;
+  padding-right: 30px;
+  font-size: 40px;
+}
+
+
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -92,3 +101,4 @@ body {
     margin-top: 7rem;
   }
 }
+

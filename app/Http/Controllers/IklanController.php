@@ -39,7 +39,8 @@ class IklanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
+            'description' => 'required'
         ]);
 
         $input = $request->all();
@@ -89,7 +90,8 @@ class IklanController extends Controller
     public function update(Request $request, Iklan $iklan)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
+            'description' => 'required'
         ]);
 
         $input = $request->all();

@@ -8,7 +8,6 @@ use App\Models\BannerHalf;
 use App\Models\Iklan;
 use App\Models\Product;
 use App\Models\Testimoni;
-use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -20,5 +19,11 @@ class HomeController extends Controller
         $iklan = Iklan::get();
 
         return view('index', compact('banner', 'product', 'testi', 'iklan'));
+    }
+
+    public function readmore($id)
+    {
+        $product = Product::where('id', $id)->get();
+        return view('readmore', compact('product'));
     }
 }

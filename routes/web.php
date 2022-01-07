@@ -21,6 +21,8 @@ use App\Http\Controllers\TestimoniController;
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/readmore/{product}', [HomeController::class, 'readmore']);
+
 // Route::get('index', function () {
 //     return view('index');
 // });

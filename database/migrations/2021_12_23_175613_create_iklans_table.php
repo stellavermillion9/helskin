@@ -16,6 +16,7 @@ class CreateIklansTable extends Migration
         Schema::create('iklans', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->string('description');
             $table->timestamps();
         });
     }

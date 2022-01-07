@@ -43,10 +43,6 @@
         }
       }
 
-      body{
-        background-image: url('{{asset('bg/bg3.jpg')}}');
-        background-size: cover;
-      }
 
 
       
@@ -119,20 +115,16 @@
 </div>
 </br>
 </br>
-<div class="row" style="text-align: center">
-  <div class="col-lg-4">
-    <img src="{{ asset('img/bpom.png')}}" alt="" style="width:275px">
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, cupiditate.</p>
+<div class="row">
+  @foreach($iklan as $i)
+  <div class="col-lg-4" style="text-align: center; background:none">
+      <img src="{{ asset('image/iklan/'.$i->image)}}" alt="" style="width:auto; height: 175px">
+      <p>{{ $i->description }}</p>
   </div>
-  <div class="col-lg-4">
-    <img class="rounded-circle" src="{{ asset('img/make up.jpg')}}" alt="" style="width: 175px;">
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, cupiditate.</p>
-  </div>
-  <div class="col-lg-4">
-    <img src="{{ asset('img/nice.png')}}" alt="" style="width: 175px">
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, cupiditate.</p>
-  </div>
+  @endforeach
 </div>
+
+
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -146,51 +138,30 @@
   </br>
     <!-- Three columns of text below the carousel -->
     
-    
+
+
     <div class="row" id="product">
       @foreach($product as $products)
       <div class="col-lg-3 card" style="text-align: center; background: none;">
         <div class="container-fluid">
         <img src="{{asset('image/product/'.$products->image)}}" alt="" style="width: 275px; height: 275px; ">   
         <h5>{{$products->name}}</h5>     
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-          Show More
-        </button>
+        <a id="create-comment" type="button" class="btn btn-primary" href="{{url('readmore/'.$products->id)}}">
+          Show More 
+        </a>
       </div> 
       </div>
+      @endforeach
     </br>
-    @endforeach
     </div>
     
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header" style="text-align: center">
-            <img src="{{asset('image/product/'.$products->image)}}" alt="" style="width: 275px; height: 275px; ">
-          </div>
-          <div class="modal-body" style="text-align: center">
-            <h4 class="modal-title" id="staticBackdropLabel">{{$products->name}}</h4>
-            <p>{{$products->detail}}</p>
-            <p>{{$products->price}}</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </div>
  
 </br>
 </br>
 
-  <div class="row">
-    @foreach($iklan as $i)
-    <div class="col-lg-6" style="text-align: center; background:none">
-        <img src="{{ asset('image/iklan/'.$i->image)}}" alt="" style="width:auto; height: 287px">
-    </div>
-    @endforeach
-  </div>
+  
 </br>
 
 </br>
@@ -232,8 +203,8 @@
 <a class="float-end" style="color: black" href="https://www.instagram.com/helskin.id/"><i class="fab fa-instagram">@helskin.id</i></a>
 </br>
 <a class= "float-end" href="https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=helskin.id@gmail.com" style="color: red; text-decoration:none"><i class="far fa-envelope"></i>helskin.id@gmail.com</a></br>
-<a class= "float-end" href="https://api.whatsapp.com/send?phone=6281902229996" style="color: green; text-decoration:none"><i class="fab fa-whatsapp"></i>+6281902229996</a></br>
 <a class= "float-end" href="https://linktr.ee/helskin.id" style="color: orange; text-decoration:none"><i class="fas fa-shopping-cart"></i>helskin.id</a></br>
+<a id="whatsapp" class= "float-end" href="https://api.whatsapp.com/send?phone=6281902229996" style="color: green; text-decoration:none; "><i class="fab fa-whatsapp"></i></a></br>
 </div>
 </div>
   </footer>
