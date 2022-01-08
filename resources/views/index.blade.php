@@ -12,7 +12,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
     <script src="https://kit.fontawesome.com/d9e92a86f2.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     
 
@@ -43,9 +43,16 @@
         }
       }
 
-
-
-      
+      @media (max-width: 450px){
+        /* #myCarousel{
+        height: 175px;
+        width: 200px;
+      } */
+      .body img{
+        width: 175px;
+        height: 175px;
+      }
+      }
 
       
     </style>
@@ -108,7 +115,6 @@
     </a>
 </div>
 </br>
-</br>
 
 <div class="container" style="text-align: center">
 <h2>Kenapa Harus Helskin?</h2>
@@ -154,9 +160,38 @@
       @endforeach
     </br>
     </div>
+  </br>
+</br>
+
+  
+</br>
+
+</br>
+</br>
+    <div class="row">
+      <div class="container" style="text-align: center; color:rgb(235, 147, 162)">
+        <h3>Anda Tertarik dengan Produk yang kami tawarkan? Order Sekarang!</h3>
+      </div>
+    </br>
+  </br>
+</br>
+</br>
+      <div class="col-lg-4">
+        <a class="btn btn-success" href="https://api.whatsapp.com/send/?phone=6282128849784&text&app_absent=0">Order di Whatsapp</a>
+      </div>
+    </br>
+  </br>
+      <div class="col-lg-4">
+        <a class="btn btn-secondary" href="https://www.lazada.co.id/shop/helskin-id">Order di Lazada</a>
+      </div>
+    </br>
+  </br>
+      <div class="col-lg-4">
+        <a class="btn btn-danger" href="https://shopee.co.id/helskin.id">Order di Shopee</a>
+      </div>
+    </div>
     
-    
-  </div>
+  
  
 </br>
 </br>
@@ -200,10 +235,10 @@
     <p class="float-start"><img src="{{ asset('img/logo.png')}}" alt="" style="width: 150px"></p>
   </div>
   <div class="col-lg-6">
-<a class="float-end" style="color: black" href="https://www.instagram.com/helskin.id/"><i class="fab fa-instagram">@helskin.id</i></a>
+<a class="float-end" style="color: black" href="https://www.instagram.com/helskin.id/"><i class="fab fa-instagram"> @helskin.id</i></a>
 </br>
-<a class= "float-end" href="https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=helskin.id@gmail.com" style="color: red; text-decoration:none"><i class="far fa-envelope"></i>helskin.id@gmail.com</a></br>
-<a class= "float-end" href="https://linktr.ee/helskin.id" style="color: orange; text-decoration:none"><i class="fas fa-shopping-cart"></i>helskin.id</a></br>
+<a class= "float-end" href="https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=helskin.id@gmail.com" style="color: red; text-decoration:none"><i class="far fa-envelope"></i> helskin.id@gmail.com</a></br>
+<a class= "float-end" href="https://linktr.ee/helskin.id" style="color: orange; text-decoration:none"><i class="fas fa-shopping-cart"></i>  helskin.id</a></br>
 <a id="whatsapp" class= "float-end" href="https://api.whatsapp.com/send?phone=6281902229996" style="color: green; text-decoration:none; "><i class="fab fa-whatsapp"></i></a></br>
 </div>
 </div>

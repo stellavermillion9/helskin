@@ -44,6 +44,7 @@
       }
 
 
+
       
 
 
@@ -106,7 +107,7 @@
               </div>
             </div>
               <div class="col-lg-8" style="text-align:start">
-                  <div class="container">
+                  <div class="container" style="color:rgb(235, 147, 162)">
                       <h3>{{ $products->name }}</h3>
                       <h5>{{ $products->price }}</h5>
                   </div>
@@ -116,15 +117,35 @@
                     <p style="font-size: 18px">{{ $products->detail }}</p>
                 </div>
               </div>
-          
       </div>
     </br>
 </br>
 </br>
-      
-      
     </br>
     @endforeach
+
+    <div class="row">
+      <div class="container" style="text-align: center; color:rgb(235, 147, 162)">
+        <h3>Anda Tertarik dengan Produk yang kami tawarkan? Order Sekarang!</h3>
+      </div>
+    </br>
+  </br>
+</br>
+</br>
+      <div class="col-lg-4" style="text-align: center">
+        <a class="btn btn-success" href="https://api.whatsapp.com/send/?phone=6282128849784&text&app_absent=0">Order di Whatsapp</a>
+      </div>
+    </br>
+  </br>
+      <div class="col-lg-4" style="text-align: center">
+        <a class="btn btn-secondary" href="https://www.lazada.co.id/shop/helskin-id">Order di Lazada</a>
+      </div>
+    </br>
+  </br>
+      <div class="col-lg-4" style="text-align: center">
+        <a class="btn btn-danger" href="https://shopee.co.id/helskin.id">Order di Shopee</a>
+      </div>
+    </div>
 </br>
 </br>
 </br>
